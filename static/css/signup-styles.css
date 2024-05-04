@@ -1,15 +1,17 @@
-/* Overall page styling */
+
+* {
+    box-sizing: border-box;
+}
+
 body, html {
     margin: 0;
     padding: 0;
-    height: 100%;
-    font-family: 'Inter', sans-serif; /* Ensure the 'Inter' font is loaded in your HTML */
+    font-family: 'Inter', sans-serif; 
     background: linear-gradient(180deg, #4EF59B 0%, #41C47E 100%);
+    background-attachment: fixed;  /* This ensures the background doesn't scroll with the content */
+    min-height: 100%;
+    height: auto;  
 
-    /*Shrinking it*/
-    
-    transform: scale(0.95); /* Adjust the scale factor as needed */
-    transform-origin: center; /* Keeps the scaling centered */
     
 }
 
@@ -18,79 +20,60 @@ main {
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
+    /* min-height: 100vh; */
+    height: 100vh; /* Ensures it takes at least the full height of the viewport */
+    padding: 20px; /* Adds padding to avoid touching the edges */
 }
 
 .logo {
-    position: absolute;
-    top: -80px; /* Adjust this value to position the logo as needed */
-    left: 50%; /* Centers the logo horizontally relative to the card */
-    transform: translateX(-50%); /* Ensures the center of the logo is what aligns to the center of the card */
-    width: 380px; /* was 120px */
-    height: auto; /* Maintains aspect ratio of the image */
+    width: 100%; /* make the logo width responsive to the flashcard width */
+    max-width: 250px; 
+    margin: 0 auto; /* Center the logo horizontally */
+    display: block; /* Ensures the logo is centered using margin */
 }
 
 
 /* Card-like container styling */
 .card {
-    /* background: #FFF; */
-    /* width: 640px; */
-    /* height: 869px; */
-    /* border: 10px solid rgba(209, 201, 201, 0.39); */
-    /* box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); */
-    /* border-radius: 8px; Adjust if you need more rounded corners */
-    /* padding: 40px; */
-    /* box-sizing: border-box; Includes padding and border in the width and height */
-    /***********************************************/
-    
-    /* background: #FFF; */
-    /* width: 80vw; 80% of the viewport width */
-    /* max-width: 640px; Maximum width to avoid being too wide on larger screens */
-    /* height: 80vh; 80% of the viewport height */
-    /* max-height: 869px; Maximum height to avoid being too tall on larger screens */
-    /* border: 10px solid rgba(209, 201, 201, 0.39); */
-    /* box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); */
-    /* border-radius: 8px; */
-    /* padding: 40px; */
-    /* box-sizing: border-box; Includes padding and border in the width and height */
-    /* display: flex; */
-    /* flex-direction: column; */
-    /* justify-content: center; Centers the form vertically in the card */
-    /* align-items: center; Centers the form horizontally in the card  */
-
-    /* background: #FFF; */
-    /* width: 44.44%; About 44.44% of the viewport width */
-    /* max-width: 640px; Maximum width to avoid being too wide on larger screens */
-    
     background: #FFF;
-    width: 32vw; /* reduced from 36vw */
-    height: 84.86vh;
+    max-width: 400px; 
+    width: 100%; 
+    max-height: 610px;
+    min-height: 300px;
+    height: 86vh;
     border: 10px solid rgba(209, 201, 201, 0.39);
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    border-radius: 20px; /*currently tuning was 8px*/
-    padding: 40px;
+    border-radius: 20px; 
+    padding: 20px; /*was 40px*/
     padding-bottom: 25px;
+    padding-top: 0px;
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
-    justify-content: flex-end; /*it was center then space-between*/
+    justify-content: space-between; 
     align-items: center;
-    
-    position: relative;
+    overflow-y: auto;
 
-    
-    
+}
+
+input, .btn{
+    width: 100%; /* Make input and button take full width of their container */
+    max-width: 360px; /* Maximum width for better control */
+    padding: 10px;
+    margin-top: 5px;
 }
 
 .input-group {
     width: 100%; /* input groups take full width */
-    margin-top: 20px; 
+    /* margin-top: 20px;  */
+    margin: 10px 0;
 }
 
 input {
     width: 32vw; /* reduced from 36vw */
-    max-width: 490px; /* Slightly reduced from 541px */
-    height: 70px;
+    max-width: 340px; /* Slightly reduced from 541px and then from 490px*/
+    max-height: 65px; /*was 70px*/
+    height: 55px;
     padding: 10px;
     margin-top: 5px;
     border: 3px solid #D1C9C9;
@@ -98,16 +81,16 @@ input {
     background: rgba(142, 252, 192, 0.32);
     color: black;
     font-family: 'Inter', sans-serif;
-    font-size: 24px;
+    font-size: 18px; /*was 24px*/
     font-weight: 400;
     text-align: left;
     box-sizing: border-box;
-    /* width: 90%; */
+    
 }
 
 input::placeholder {
     color: #3DCB7F;
-    font-size: 24px;
+    font-size: 18px;
     font-weight: 600;
     text-align: left;
 }
@@ -117,82 +100,83 @@ input:focus::placeholder {
 }
 
 .btn {
-    width: 28vw; /*reduced from 32vw*/
-    height: 77px; 
+    height: 50px; 
     border-radius: 50px; 
     border: 5px solid #6AD69C;
     background-color: #6AD69C; 
     color: #FFF;
-    /* font-family: Inter; */
-    font-size: 25px; /*currently tuning was 30px*/
+    font-size: 20px; /*currently tuning was 30px*/
     font-weight: 800;
     text-align: center;
-    line-height: 77px; /* Setting line height equal to height for vertical centering of text */ /* Centering text vertically */
+    line-height: 50px; /*was 77px*/ /* Setting line height equal to height for vertical centering of text */ /* Centering text vertically */
     cursor: pointer;
-    display: flex;         /* Makes the button a flex container */
+    display: flex;         
     justify-content: center; /* Horizontally centers the content within the button */
     align-items: center;   /* Vertically centers the content within the button */
-    margin-top: 25px; 
-
-    /* width: 90%; */
+    margin-top: 20px; 
+    margin-left: 10px;
+    width: calc(100% - 20px); /* Reduce the width by padding for proper alignment */
+    max-width: 360px; /* Adjust if needed to keep button width consistent */
+    padding: 10px 20px; /* Use padding to control height */
 }
 
+
+
 .btn:hover {
-    background-color: #58c38a; /* Slightly darker shade for hover effect */
+    background-color: #58c38a; /* slightly darker */
 }
 
 .back-link-container {
-    position: fixed; /* doesn't scroll with the content */
-    top: 20px; /* Position from the top of the viewport */
-    left: 20px; /* Position from the left of the viewport */
-    z-index: 1000; /* Ensure it sits above other content */
+    position: fixed; /* doesn't scroll with content */
+    top: 30px; 
+    left: 30px; 
+    z-index: 1000; /* sits above other content */
 }
 
-/* Style for the link itself */
 .back-link {
     color: white; 
-    /* color: #3DCB7F; */
-    font-size: 22px;
+    font-size: 19px;
     font-weight: 600;
 
-    text-decoration: none; /* removes underline from the link */
-    background: rgba(0, 0, 0, 0.1); /* Optional: adds a subtle background */
-    padding: 8px; /* Padding around the text */
-    border-radius: 5px; /* Optional: rounds the corners */
-    font-family: 'Inter', sans-serif; /* Maintains consistency with the rest of your page */
+    text-decoration: none; /* removes underline from link */
+    background: rgba(0, 0, 0, 0.1); 
+    padding: 8px; 
+    border-radius: 5px; 
+    font-family: 'Inter', sans-serif; 
 }
 
 .back-link:hover {
-    background: rgba(0, 0, 0, 0.2); /* Darkens the background slightly on hover for better interaction feedback */
+    background: rgba(0, 0, 0, 0.2); /* darken the backgrond */
 }
 
-/* Media Queries (not working) 
-Adjust when the screen width is less than 1024 pixels
-@media (max-width: 1024px) {
-    body, html {
-        transform: scale(0.9); Scale down the entire page
-    }
+@media (max-width: 768px) {
     .card {
-        width: 50vw; Increase width to maintain usability
-        height: 80vh;
+        padding: 15px;
     }
-    .input, .btn {
-        width: 100%;
+    .input-group {
+        margin: 5px 0; 
+    }
+    input {
+        padding: 8px; 
+    }
+    input, .btn {
+        max-width: none;
     }
 }
 
-Adjust when the screen width is less than 600 pixels
-@media (max-width: 600px) {
-    body, html {
-        transform: scale(0.8); Scale down the entire page more
+@media (max-width: 480px) {
+    main {
+        padding: 10px; 
     }
     .card {
-        width: 80vw; Further increase width for very small devices
-        height: auto; Let the height be automatic to fit content
-        padding: 20px; Reduce padding
+        border-radius: 10px; 
+        width: auto; 
+        padding: 10px; 
     }
-    .logo {
-        top: -20px; Adjust logo positioning to fit smaller view
-        width: 50vw; Adjust logo size
+    .input-group {
+        margin: 5px 0; 
     }
-} */
+    input {
+        padding: 7px; 
+    }
+}
