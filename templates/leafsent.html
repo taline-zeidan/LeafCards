@@ -4,18 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign Up - Leafcards</title>
-    <link rel="icon" type="image/png" href="C:\Users\Nour Rajeh\Desktop\Leafcards\assets\images\favicon.png"> <!-- update path to favicon-->
-    <link rel="stylesheet" href="C:\Users\Nour Rajeh\Desktop\Leafcards\assets\css\leafsent-styles.css"> <!-- update oath to signup-styles -->
+    <link rel="icon" type="image/png" href="{{url_for('static',filename='images/favicon.png')}}"> <!-- update path to favicon-->
+    <link rel="stylesheet" href="{{url_for('static',filename='css/leafsent-styles.css')}}"> <!-- update oath to signup-styles -->
 </head>
 <body>
-    <header>
-        <!-- Navbar -->
-    </header>
-
+    
     <main>
         <div class="signup-container">
             <div class="card"> 
-                <img src="C:\Users\Nour Rajeh\Desktop\Leafcards\assets\images\leafsent.png" alt="Logo" class="logo"> <!-- update path to leafsent in images -->
+                <img src="{{url_for('static',filename='images/leafsent.png')}}" alt="Logo" class="logo"> <!-- update path to leafsent in images -->
                 <div class="verification-message"> 
                     <p> 
                         <b>Thank you for signing up!</b><br>
@@ -31,17 +28,12 @@
                 </div>
                 <button type="submit" class="btn">Authenticate</button>
                 
-                <!-- <script src="C:\Users\Nour Rajeh\Desktop\Leafcards\assets\js\form-handler.js"></script> update path to form-hanlder.js -->
             </div>
         </div>
         <div class="back-link-container"> <!-- container for the Back to Main-->
-            <a href="C:\Users\Nour Rajeh\Desktop\Leafcards\src\index.html" class="back-link">← Back to Main</a> <!-- update path to index.html-->
+            <a href="index.html" class="back-link">← Back to Main</a> <!-- update path to index.html-->
         </div>
     </main>
-
-    <footer>
-        <!-- Footer content goes here -->
-    </footer>
 
 </body>
 </html>
