@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learning Center - Leafcards</title>
+    <link rel="stylesheet" href="..\assets\css\learn-styles.css">
+    <link rel="icon" type="image/png" href="..\assets\images\favicon.png">
+</head>
+<body>
+    <header>
+        <button class="btn header-btn">✖</button>
+        <div>1/5</div>
+        <button class="btn header-btn">⚙️</button>
+    </header>
+    <main>
+        <div class="counters">
+            <div class="counter left"></div> <!-- Counter for "Don't know" -->
+            <div class="counter right"></div> <!-- Counter for "Know" -->
+        </div>
+        <div class="maincontainer">
+            <div class="leafcard">
+                <div class="card">
+                    <div class="frontface">What's the Arithmetical Logical Unit?</div>
+                    <div class="backface">It's a unit within the processor that performs arithmetic and logical operations.</div>
+                </div>
+            </div>            
+        </div>
+    </main>
+    <footer>
+        <button class="btn footer-btn negative">Still Learning</button>
+        <button class="btn footer-btn positive">Yay ! Knew it</button>
+    </footer>
+    <script src="..\assets\js\flipcard.js"></script>
+</body>
+</html>

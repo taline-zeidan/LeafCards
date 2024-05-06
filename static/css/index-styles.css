@@ -1,8 +1,10 @@
-body {
+body, html {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #5DEFA2;
+    /* background-color: #5DEFA2; */
+    /* background: linear-gradient(to bottom, white, #f0f0f0); */
+    background: #f0f0f0;
 }
 
 header {
@@ -71,4 +73,15 @@ header {
     .navbar {
         justify-content: center;
     }
+}
+
+footer {
+    background-color: #3ec57d;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
 }

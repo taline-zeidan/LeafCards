@@ -7,7 +7,7 @@ body, html {
     padding: 0;
     font-family: 'Inter', sans-serif; 
     background: linear-gradient(180deg, #60C8FF 0%, #4EF59B 66.5%);
-    background-attachment: fixed;  /* ensures the background doesn't scroll with the content */
+    background-attachment: fixed;  /* This ensures the background doesn't scroll with the content */
     height: 100%;  
     min-height: 100vh;
 }

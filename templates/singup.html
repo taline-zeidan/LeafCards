@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up - Leafcards</title>
+    <link rel="icon" type="image/png" href="..\assets\images\favicon.png"> <!-- update path to favicon-->
+    <link rel="stylesheet" href="..\assets\css\signup-styles.css"> <!-- update oath to signup-styles -->
+</head>
+<body>
+    <header>
+        <!-- Navbar -->
+    </header>
+
+    <main>
+        <div class="signup-container">
+            <div class="card"> <!-- Wrapper div to style like a flashcard -->
+                <img src="..\assets\images\superimposedLogo.png" alt="Logo" class="logo"> 
+                <form action="/submit-your-signup-form" method="POST" class="signup-form">
+                    <div class="input-group">
+                        <input type="text" id="username" name="username" placeholder="Username" required>
+                    </div>
+                    <div class="input-group">
+                        <input type="email" id="email" name="email" placeholder="Email Address" required>
+                    </div>
+                    <div class="input-group">
+                        <input type="password" id="password" name="password" placeholder="Enter Password" required>
+                    </div>
+                    <div class="input-group">
+                        <input type="password" id="confirm-password" name="confirm_password" placeholder="Confirm Password" required>
+                    </div>
+                    <button type="submit" class="btn">Create the account</button>
+                </form>
+                <script src="..\assets\js\form-handler.js"></script> <!-- update path to form-hanlder.js-->
+            </div>
+        </div>
+        <div class="back-link-container"> <!-- container for the Back to Main-->
+            <a href="index.html" class="back-link">← Back to Main</a> <!-- update path to index.html-->
+        </div>
+    </main>
+
+</body>
+</html>

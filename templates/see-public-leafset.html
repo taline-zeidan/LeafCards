@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Create - Leafcards</title>
-    <link rel="stylesheet" href="..\assets\css\create-styles.css">
+    <title>View Leafset - Leafcards</title>
+    <link rel="stylesheet" href="..\assets\css\seeLeafset-styles.css">
     <link rel="icon" type="image/png" href="..\assets\images\favicon.png">
 </head>
 <body>
@@ -19,35 +19,37 @@
                 <a href="discover.html">Discover</a>
                 <a href="MyLeafsets.html">My Leafsets</a>
                 <a href="settings.html">Settings</a>
-                <!-- <a href="signup.html" class="sign-up">Sign Up</a> -->
             </div>
         </div>
     </header>
     <main>
         <div class="create-leafset">
-            <h1>Grow a New Leafset</h1>
+            <h1>View Public Leafset</h1>
             <form>
                 <label for="leafsetName"></label>
-                <input type="text" id="leafsetName" name="leafsetName" class="form-boxes" placeholder="Name of the Leafset">
-
+                <input type="text" id="leafsetName" name="leafsetName" class="form-boxes" value="Biology 101" placeholder="Name of the Leafset" disabled>
+    
                 <label for="leafsetLabel"></label>
-                <input type="text" id="leafsetLabel" name="leafsetLabel" class="form-boxes" placeholder="Enter a label e.g., Biology, Spanish, History">
-
+                <input type="text" id="leafsetLabel" name="leafsetLabel" class="form-boxes" value="Biology" placeholder="Enter a label e.g., Biology, Spanish, History" disabled>
+    
                 <div class="flashcards-container" id="flashcardsContainer">
                     <!-- Flashcard input pairs will be dynamically inserted here -->
                 </div>
-
-                <button type="button" class="add-btn" id="addCardBtn">Add Flashcard</button>
-                <button type="submit" class="save-btn" id="saveBtn">Save Leafset</button>
+    
+                <!-- <button type="button" class="add-btn" id="addCardBtn">Add Flashcard</button> -->
+                <button type="submit" class="save-btn" id="saveBtn">Save to My Leafsets</button>
+                <!-- <button type="button" class="delete-btn" id="deleteBtn">Delete Leafset</button> -->
             </form>
         </div>
     </main>
+    
+    
 
     <!-- Footer -->
     <footer>
         © 2024 Leafcards by LinkedLeaves
     </footer>
 
-    <script src="..\assets\js\create.js"></script>
+    <!-- <script src="..\assets\js\see.js"></script> -->
 </body>
 </html>
