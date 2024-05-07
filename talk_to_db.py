@@ -46,6 +46,18 @@ def get_username_by_email(email):
     else:
         return "No user found with that email"
 
+def get_user_id(email):
+    conn, cursor = get_db_connection()
+    cursor.execute("SELECT UserID FROM Users WHERE Email = ?", (email,))
+    result = cursor.fetchone()
+    cursor.close()
+    conn.close()
+    
+    if result:
+        return result[0]
+    else:
+        return None  # No user found with that email
+
 
 
 
