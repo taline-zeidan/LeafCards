@@ -4,14 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign Up - Leafcards</title>
-    <link rel="icon" type="image/png" href="{{url_for('static',filename='images/favicon.png')}}"> <!-- update path to favicon-->
-    <link rel="stylesheet" href="{{url_for('static',filename='css/signup-styles.css')}}"> <!-- update oath to signup-styles -->
+    <link rel="icon" type="image/png" href="..\assets\images\favicon.png"> <!-- update path to favicon-->
+    <link rel="stylesheet" href="..\assets\css\signup-styles.css"> <!-- update oath to signup-styles -->
 </head>
 <body>
+    <header>
+        <!-- Navbar -->
+    </header>
+
     <main>
         <div class="signup-container">
             <div class="card"> <!-- Wrapper div to style like a flashcard -->
-                <img src="{{url_for('static',filename='images/superimposedLogo.png')}}" alt="Logo" class="logo"> 
+                <img src="..\assets\images\superimposedLogo.png" alt="Logo" class="logo"> 
                 <form action="/submit-your-signup-form" method="POST" class="signup-form">
                     <div class="input-group">
                         <input type="text" id="username" name="username" placeholder="Username" required>
@@ -27,13 +31,13 @@
                     </div>
                     <button type="submit" class="btn">Create the account</button>
                 </form>
-                <script src="{{url_for('static',filename='js/form-handler.js')}}"></script> <!-- update path to form-hanlder.js-->
+                <script src="..\assets\js\form-handler.js"></script> <!-- update path to form-hanlder.js-->
             </div>
         </div>
         <div class="back-link-container"> <!-- container for the Back to Main-->
-            <a href="{{url_for('login')}}" class="back-link">← Back to Main</a> <!-- update path to index.html-->
+            <a href="index.html" class="back-link">← Back to Main</a> <!-- update path to index.html-->
         </div>
     </main>
-    
+
 </body>
 </html>

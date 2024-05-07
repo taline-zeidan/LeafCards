@@ -41,13 +41,12 @@ def login():
         email= request.form['email']
         password = request.form['password']
         try:
-            authentication = authenticate(username=email, password=password)
+            authentication = ttd.authenticate(username=email, password=password)
         except Exception as e:
             authentication = False
 
         if authentication:
-            
-            session["user"] = 'name'
+            session["user"] = ttd.get_username(email)
             session["email"] = email
             return redirect("/home")
         else:
@@ -55,6 +54,13 @@ def login():
 
     return render_template("signup.html", msg = msg)
 
+@app.route('/home',methods= ['GET'])
+def go_home():
+    if session["user"] == None:
+        return redirect("/login")
+    else:
+        return render_template("landing-upon-login.html",user=session["user"])
+    
 @app.route('/signup', methods = ['POST','GET'])
 def register():
     msg = ''
@@ -89,12 +95,15 @@ def send_email(to, subject, template):
 def confirm_email(token):
     try:
         email = confirm_token(token)
-    except:
-        return 'The confirmation link is invalid or has expired.'
-    ###############################################################
-    ###############LEZEM A3MOL SHI HON BAS BADDE NEM###############
-    ###############################################################
-    return 'You have confirmed your account. Thanks!'
+        if email:
+            # Here, implement the logic to update the user's status as 'verified'
+            ttd.update_user_status(email, 'verified')
+            return 'You have confirmed your account. Thanks!'
+        else:
+            return 'The confirmation link is invalid or has expired.'
+    except Exception as e:
+        return str(e)  # for debugging, better log this in production
+
 
 if __name__ == '__main__':
     app.run(debug=True)

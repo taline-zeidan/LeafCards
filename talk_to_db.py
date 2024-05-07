@@ -31,6 +31,20 @@ def authenticate(email, password):
         return True
     else:
         return False
+    
+def get_username_by_email(email):
+    conn = sqlite3.connect('database.db')
+    cursor = conn.cursor()
+    
+    query = """SELECT username FROM users WHERE email = ?"""
+    cursor.execute(query, (email,))
+    result = cursor.fetchone()
+    conn.close()
+    
+    if result:
+        return result[0]
+    else:
+        return "No user found with that email"
 
 
 
