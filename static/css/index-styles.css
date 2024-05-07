@@ -2,21 +2,52 @@ body, html {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    /* background-color: #5DEFA2; */
-    /* background: linear-gradient(to bottom, white, #f0f0f0); */
-    background: #f0f0f0;
+    padding-top: 40px;
+    background: linear-gradient(to bottom, white, #f0f0f0);
+    overflow: hidden;
+    height: 100%;
+    margin-bottom: 50px;
+}
+
+main {
+    overflow-y: auto; 
+    overflow-x: hidden; 
+    margin-top: 20px;
+    
+    padding: 20px 0; 
+    height: calc(100vh - 70px); 
+    
+}
+
+@media (max-width: 600px) {
+    .nav-links {
+        display: none;
+    }
+    .navbar {
+        justify-content: center;
+    }
 }
 
 header {
     background-color: #fff;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     padding: 10px 20px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    /* width: 100%;     */
+    /* overflow: hidden; */
+
+    
 }
 
 .navbar {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    width: 100%;
 }
 
 .logo img {
@@ -74,6 +105,77 @@ header {
         justify-content: center;
     }
 }
+#home {
+    margin-top : 50px;
+    text-align: center; 
+    padding: 50px 20px; 
+    background-color: #c3ffdf; 
+    color: #333; 
+}
+
+#home h2 {
+    color: #6AD69C; 
+    font-size: 55px;
+    margin-bottom: 20px; 
+}
+
+#home p {
+    font-size: 18px;
+    color: #555; 
+}
+
+
+.feature {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    margin: 20px 0;
+}
+
+.feature:nth-child(even) {
+    flex-direction: row-reverse;
+}
+
+.feature img {
+    width: 40%; 
+    height: auto;
+}
+
+.feature .content {
+    width: 55%; 
+}
+
+.feature h3 {
+    color: #333;
+    font-size: 44px;
+    font-weight: bold;
+    margin-bottom: 40px;
+}
+
+.feature p {
+    color: #666;
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+
+@media (max-width: 800px) {
+    .feature {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .feature img {
+        width: 80%;
+        margin-top: 20px;
+    }
+
+    .feature .content {
+        width: 100%;
+    }
+}
+
 
 footer {
     background-color: #3ec57d;
