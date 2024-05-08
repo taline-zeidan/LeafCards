@@ -34,25 +34,28 @@ def confirm_token(token, expiration=3600):
 def home():
     return redirect("/login")
 
-@app.route('/login', methods = ['POST', 'GET'] )
+@app.route('/login', methods=['POST', 'GET'])
 def login():
     msg = ''
     if request.method == "POST" and 'email' in request.form and 'password' in request.form:
-        email= request.form['email']
+        email = request.form['email']
         password = request.form['password']
         try:
-            authentication = ttd.authenticate(username=email, password=password)
+            authentication = ttd.authenticate(email, password) 
         except Exception as e:
+            print("Authentication failed:", e)  # Logging the exception can help in debugging
             authentication = False
 
         if authentication:
-            session["user"] = ttd.get_username(email)
+            session["user"] = ttd.get_username(email) 
+            session["user_id"] = ttd.get_user_id(email)  # Assuming get_user_id is correctly fetching user ID
             session["email"] = email
             return redirect("/home")
         else:
             msg = "Incorrect username or password"
 
-    return render_template("signup.html", msg = msg)
+    return render_template("signup.html", msg=msg)
+
 
 @app.route('/home',methods= ['GET'])
 def go_home():
