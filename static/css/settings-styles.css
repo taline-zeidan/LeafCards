@@ -2,14 +2,22 @@ body, html {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    padding-top: 40px;
+    /* padding-top: 40px; */
     background: linear-gradient(to bottom, white, #f0f0f0);
     overflow: hidden;
     height: 100%;
 }
 
+main {
+    padding-top: 70px; 
+    overflow-y: auto;
+    overflow-x: hidden; 
+    padding: 20px 0; 
+    height: calc(100vh - 70px); 
+    
+}
 
-/* Additional styles and responsive adjustments */
+
 @media (max-width: 600px) {
     .nav-links {
         display: none;
@@ -87,7 +95,6 @@ header {
     color: white;
 }
 
-
 @media (max-width: 600px) {
     .nav-links {
         display: none;
@@ -97,12 +104,44 @@ header {
     }
 }
 
+.form-boxes {
+    display: flex;
+    justify-content: center;
+    /* margin: 10px 0; */
+    margin-bottom: 40px;
+    font-size: 18px;
+    width: 100%;
+}
+
+.submit-btn {
+    background-color: #45d689; /* Green */
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    /* width: 60%; */
+}
+
+.submit-btn:hover {
+    background-color: #35ab6c;
+}
+
+
+
 .settings-container {
     width: 80%;
     max-width: 500px;
     margin: 0 auto;
     background-color: #f4f4f4;
     padding: 20px;
+    padding-top: 10px;
     /* box-shadow: 0 2px 5px rgba(0,0,0,0.1); */
     text-align: center;
     margin-top: 80px;
@@ -115,7 +154,7 @@ header {
     color: #333;
     
     /* color: #4EF59B; */
-    margin-bottom: 40px;
+    margin-bottom: 20px;
 }
 
 .settings-list {
@@ -127,7 +166,7 @@ header {
     margin-bottom: 10px;
 }
 
-.settings-list button {
+.buttons {
     background-color: #45d689;
     border: none;
     padding: 10px 20px;
@@ -151,7 +190,7 @@ header {
     border-radius: 5px;
 }
 
-.settings-list button:hover {
+.buttons:hover {
     background-color: #35ab6c;
 }
 
@@ -167,4 +206,12 @@ footer {
     left: 0;
     bottom: 0;
     width: 100%;
+}
+
+.form-boxes {
+    display: flex;
+    justify-content: center;
+    margin: 10px 0;
+    /* margin-bottom: 40px; */
+    font-size: 18px;
 }
