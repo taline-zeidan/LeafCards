@@ -5,7 +5,7 @@ import talk_to_db as ttd
 
 
 app = Flask(__name__)
-app.config['SECRET_KEY']='8fc1a05cf18fd2b60d3befb6e475a0008f0e55568bffd4b3d45b6fb699465338'
+app.secret_key='8fc1a05cf18fd2b60d3befb6e475a0008f0e55568bffd4b3d45b6fb699465338'
 app.config['MAIL_SERVER'] = 'smtp.gmail.com'
 app.config['MAIL_PORT'] = 465
 app.config['MAIL_USE_SSL'] = True
@@ -56,8 +56,6 @@ def register():
         ttd.register_user(email,password)
         msg='Check your email to confirm your sign up!'
         return redirect('/login')
-    
-    print("All routes:", app.url_map)  # This will print all registered routes
     return render_template('signup.html',msg=msg)
 
 @app.route('/login', methods=['POST', 'GET'])
@@ -79,16 +77,14 @@ def login():
             return redirect("/home")
         else:
             msg = "Incorrect username or password"
-    
-    msg =  app.url_map  # This will print all registered routes
     return render_template("login.html", msg=msg)
 
 
 @app.route('/home',methods= ['GET'])
 def go_home():
-    #if session["user"] == None:
-    #    return redirect("/login")
-    #else:
+    if "user" not in session:
+        return redirect("/login")
+    else:
         return render_template("landing-upon-login.html",user=session["user"])
 
 

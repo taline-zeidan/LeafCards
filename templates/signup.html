@@ -16,7 +16,7 @@
         <div class="signup-container">
             <div class="card"> <!-- Wrapper div to style like a flashcard -->
                 <img src="{{url_for('static', filename='images/superimposedLogo.png')}}" alt="Logo" class="logo">
-                <form  class="signup-form" action="{{ url_for('signup') }}" method="POST">
+                <form  class="signup-form" action="/signup" method="POST">
                     <div class="input-group">
                         <input type="text" id="username" name="username" placeholder="Username" required>
                     </div>
@@ -35,7 +35,7 @@
             </div>
         </div>
         <div class="back-link-container"> <!-- container for the Back to Main-->
-            <a href="index.html" class="back-link">← Back to Main</a> <!-- update path to index.html-->
+            <a href="/login" class="back-link">← Login !</a> <!-- update path to index.html-->
         </div>
     </main>
 
