@@ -9,16 +9,17 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script>
     $(document).ready(function() {
-        const userId = 1; 
+        const userId = 1; // This should be dynamically set based on the logged-in user
         $.getJSON(`/get_user_leafsets/${userId}`, function(leafsets) {
             let grid = $('.leafgrid');
-            grid.empty(); 
+            grid.empty(); // Clear existing content
             leafsets.forEach(function(leafset) {
+                // Include the Leaf_Set_ID in the URL when the Practice button is clicked
                 grid.append(
                     `<div class="leafcard">
                         <div class="label">#${leafset[2]}</div>
                         <h2>${leafset[1]}</h2>
-                        <button onclick="location.href='learn.html'">Practice</button>
+                        <button onclick="location.href='learn.html?leafsetId=${leafset[0]}'">Practice</button>
                         <button onclick="location.href='seeLeafset.html'" class="edit-btn">Modify</button>
                     </div>`
                 );
@@ -28,6 +29,7 @@
         });
     });
     </script>
+
 </head>
 <body>
     <header>
