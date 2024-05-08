@@ -4,38 +4,55 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Settings - Leafcards</title>
-    <link rel="stylesheet" href="..\assets\css\settings-styles.css">
-    <link rel="icon" type="image/png" href="..\assets\images\favicon.png">
+    <link rel="stylesheet" href="..\static\css\settings-styles.css">
+    <link rel="icon" type="image/png" href="..\static\images\favicon.png">
 </head>
 <body>
     <header>
         <div class="navbar">
             <div class="logo">
                 <a href="landing-upon-login.html">
-                    <img src="..\assets\images\landing_logo.png" alt="Logo">
+                    <img src="..\static\images\landing_logo.png" alt="Logo">
                 </a>
             </div>
             <div class="nav-links">
                 <a href="discover.html">Discover</a>
                 <a href="MyLeafsets.html">My Leafsets</a>
                 <a href="settings.html">Settings</a>
-                <!-- <a href="signup.html" class="sign-up">Sign Up</a> -->
             </div>
         </div>
     </header>
     <main class="main">
         <div class="settings-container">
             <h1>Settings Dashboard</h1>
-            <ul class="settings-list">
-                <li><button onclick="alert('Change Username functionality not implemented')">Change Username</button></li>
-                <li><button onclick="alert('Change Email functionality not implemented')">Change Email</button></li>
-                <li><button onclick="alert('Log Out functionality not implemented')">Log Out</button></li>
-                <li><button class="danger-zone"onclick="alert('Delete Account functionality not implemented')">Delete Account</button></li>
-            </ul>
+            <form id="settingsForm">
+                <ul class="settings-list">
+                    <li><button id="changeUsernameBtn">Change Username</button></li>
+                    <div id="usernameChangeContainer" style="display: none;">
+                        <input type="text" id="username" name="username" class="form-boxes" placeholder="New Username">
+                    </div>
+                    
+                    <li><button id="changePasswordBtn">Change Password</button></li>
+                        <div id="passwordChangeContainer" style="display: none;">
+                            <input type="password" id="oldPassword" name="oldPassword" class="form-boxes" placeholder="Old Password" required>
+                            <input type="password" id="newPassword" name="newPassword" class="form-boxes" placeholder="New Password" required disabled>
+                        </div>
+
+                    
+                    <li><button id="changeEmailBtn">Change Email</button></li>
+                    <div id="emailChangeContainer" style="display: none;">
+                        <input type="text" id="email" name="email" class="form-boxes" placeholder="New Email Address">
+                    </div>
+                    
+                    <li><button onclick="alert('Log Out functionality not implemented')">Log Out</button></li>
+                    <li><button class="danger-zone" onclick="alert('Delete Account functionality not implemented')">Delete Account</button></li>
+                </ul>
+            </form>
         </div>
     </main>
     <footer>
         © 2024 Leafcards by LinkedLeaves
     </footer>
 </body>
+<script src="..\static\js\settings-script.js"></script>
 </html>
