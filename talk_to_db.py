@@ -32,7 +32,7 @@ def authenticate(email, password):
     else:
         return False
     
-def get_username_by_email(email):
+def get_username_id(email):
     conn = sqlite3.connect('database.db')
     cursor = conn.cursor()
     
@@ -59,7 +59,7 @@ def get_user_id(email):
         return None  # No user found with that email
 
 
-def get_user_id(email):
+def get_user_by_email(email):
     """
     Fetch the username (UserID) based on the email.
     """
