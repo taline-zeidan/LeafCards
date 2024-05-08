@@ -189,6 +189,10 @@ header {
     margin-top: 10px;
 }
 
+.public-button {
+    margin-bottom: 20px;
+}
+
 .add-btn {
     background-color: #42da89;
     color: rgb(255, 255, 255);
