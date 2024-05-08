@@ -4,8 +4,82 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Learning Center - Leafcards</title>
-    <link rel="stylesheet" href="..\assets\css\learn-styles.css">
-    <link rel="icon" type="image/png" href="..\assets\images\favicon.png">
+    <link rel="stylesheet" href="../static/css/learn-styles.css">
+    <link rel="icon" type="image/png" href="../static/images/favicon.png">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+    $(document).ready(function() {
+        function getQueryParam(param) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(param);
+        }
+
+        let leafsetId = getQueryParam('leafsetId');
+        let currentCardIndex = 0;
+        let cardsData = [];
+        let countKnow = 0;
+        let countDontKnow = 0;
+
+        function loadCards() {
+            if (leafsetId) {
+                $.getJSON(`/get_leafset_cards/${leafsetId}`, function(cards) {
+                    cardsData = cards;
+                    displayCard(currentCardIndex);
+                }).fail(function() {
+                    console.error('Error fetching leafset cards');
+                });
+            }
+        }
+
+        function displayCard(index) {
+            if (index < cardsData.length) {
+                let card = cardsData[index];
+                $('.frontface').text(card[2]); // Question
+                $('.backface').text(card[3]); // Answer
+            } else {
+                alert("You've reached the end of this set!");
+            }
+        }
+
+        function updateKnowledge(cardId, knowledgeLevel) {
+            $.ajax({
+                url: '/update_knowledge',
+                type: 'POST',
+                contentType: 'application/json',
+                data: JSON.stringify({ cardId: cardId, knowledge: knowledgeLevel }),
+                success: function(response) {
+                    console.log('Knowledge updated:', response);
+                },
+                error: function() {
+                    console.error('Failed to update knowledge');
+                }
+            });
+        }
+
+        $('.footer-btn').click(function() {
+            let knowledgeLevel = $(this).hasClass('positive') ? 1 : 0;
+            updateKnowledge(cardsData[currentCardIndex][0], knowledgeLevel);
+
+            // Update counters
+            if (knowledgeLevel === 1) {
+                countKnow++;
+                $('.counter.right').text(countKnow);
+            } else {
+                countDontKnow++;
+                $('.counter.left').text(countDontKnow);
+            }
+
+            currentCardIndex++;
+            if (currentCardIndex < cardsData.length) {
+                displayCard(currentCardIndex);
+            } else {
+                alert("You've reached the end of this set!");
+            }
+        });
+
+        loadCards();
+    });
+    </script>
 </head>
 <body>
     <header>
@@ -15,22 +89,22 @@
     </header>
     <main>
         <div class="counters">
-            <div class="counter left"></div> <!-- Counter for "Don't know" -->
-            <div class="counter right"></div> <!-- Counter for "Know" -->
+            <div class="counter left">0</div> <!-- Counter for "Don't know" -->
+            <div class="counter right">0</div> <!-- Counter for "Know" -->
         </div>
         <div class="maincontainer">
             <div class="leafcard">
                 <div class="card">
-                    <div class="frontface">What's the Arithmetical Logical Unit?</div>
-                    <div class="backface">It's a unit within the processor that performs arithmetic and logical operations.</div>
+                    <div class="frontface">Question will appear here</div>
+                    <div class="backface">Answer will appear here</div>
                 </div>
             </div>            
         </div>
     </main>
     <footer>
         <button class="btn footer-btn negative">Still Learning</button>
-        <button class="btn footer-btn positive">Yay ! Knew it</button>
+        <button class="btn footer-btn positive">Yay! Knew it</button>
     </footer>
-    <script src="..\assets\js\flipcard.js"></script>
+    <script src="../static/js/flipcard.js"></script>
 </body>
 </html>
