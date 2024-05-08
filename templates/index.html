@@ -4,22 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Leafcards : Grow Knowledge</title>
-    <link rel="icon" type="image/png" href="..\assets\images\favicon.png"> <!-- update path to favicon-->
-    <link rel="stylesheet" href="..\assets\css\index-styles.css"> <!-- update path to css-->
+    <link rel="icon" type="image/png" href="{{url_for('static',filename='images/favicon.png')}}"> <!-- update path to favicon-->
+    <link rel="stylesheet" href="{{url_for('static',filename='css/index-styles.css')}}"> <!-- update path to css-->
 </head>
 <body>
     <header>
         <div class="navbar">
             <div class="logo">
-                <a href="index.html">
-                    <img src="..\assets\images\landing_logo.png" alt="Logo">
+                <a href="/index">
+                    <img src="{{url_for('static',filename='images/landing_logo.png')}}" alt="Logo">
                 </a>
             </div>
             <div class="nav-links">
                 <a>Discover</a>
                 <a>My Leafsets</a>
-                <a href="login.html">Login</a>
-                <a href="singup.html" class="sign-up">Sign Up</a>  
+                <a href="/login">Login</a>
+                <a href="/singup" class="sign-up">Sign Up</a>  
             </div>
         </div>
     </header>
@@ -36,12 +36,12 @@
                 <h3>Discover. Learn. Excel.</h3>
                 <p>Dive into a dynamic learning ecosystem where you can explore trending leafsets and tailor your study sessions. Use our smart tools to uncover new knowledge paths and track your learning progress accurately.</p>
             </div>
-            <img src="..\assets\images\brain.png" alt="Brain">
+            <img src="{{url_for('static',filename='images/brain.png')}}" alt="Brain">
         </section>
     
         <!-- Second part -->
         <section class="feature">
-            <img src="..\assets\images\question.png" alt="Question">
+            <img src="{{url_for('static',filename='images/question.png')}}" alt="Question">
             <div class="content">
                 <h3>Flip Through Facts, Illuminate Your Mind</h3>
                 <p>Engage with an intuitive learning center where each flip brings you closer to mastering your subjects. Our platform allows you to create, save, and share leafsets, making every learning session fruitful and enjoyable.</p>
@@ -54,7 +54,7 @@
                 <h3>Grow Globally, Achieve Personally</h3>
                 <p>Join a worldwide community of learners who are as driven as you. Create, discover, and interact with trending leafsets. Watch your knowledge expand as you connect with others and your accuracy scores soar.</p>
             </div>
-            <img src="..\assets\images\globe.png" alt="Globe">
+            <img src="{{url_for('static',filename='images/globe.png')}}" alt="Globe">
         </section>
     </main>
     

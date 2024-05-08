@@ -35,7 +35,19 @@ def confirm_token(token, expiration=3600):
 #this code WILL crash
 @app.route('/')
 def home():
-    return redirect("/login")
+    return redirect("/index")
+
+@app.route('/index')
+def index():
+    return render_template('index.html')
+
+@app.route("/discover")
+def discover():
+    return render_template('discover.html')
+
+@app.route('/settings')
+def settings():
+    return render_template('settings.html')
 
 @app.route('/signup', methods=['POST','GET'])
 def register():
@@ -57,6 +69,21 @@ def register():
         msg='Check your email to confirm your sign up!'
         return redirect('/login')
     return render_template('signup.html',msg=msg)
+
+@app.route('/MyLeafsets')
+def open_leafsets():
+    if "user" not in session:
+        return redirect("/login")
+    else:
+        return render_template('MyLeafsets.html')
+    
+@app.route('/create')
+def create_leaf():
+    if "user" not in session:
+        return redirect("/login")
+    else:
+        return render_template('create.html')
+
 
 @app.route('/login', methods=['POST', 'GET'])
 def login():

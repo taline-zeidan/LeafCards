@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Learning Center - Leafcards</title>
-    <link rel="stylesheet" href="../static/css/learn-styles.css">
-    <link rel="icon" type="image/png" href="../static/images/favicon.png">
+    <link rel="stylesheet" href="{{url_for('static',filename='css/learn-styles.css')}}">
+    <link rel="icon" type="image/png" href="{{url_for('static',filename='images/favicon.png')}}">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script>
     $(document).ready(function() {
@@ -105,6 +105,6 @@
         <button class="btn footer-btn negative">Still Learning</button>
         <button class="btn footer-btn positive">Yay! Knew it</button>
     </footer>
-    <script src="../static/js/flipcard.js"></script>
+    <script src="{{url_for('static',filename='js/flipcard.js')}}"></script>
 </body>
 </html>

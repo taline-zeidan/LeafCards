@@ -4,21 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Settings - Leafcards</title>
-    <link rel="stylesheet" href="..\static\css\settings-styles.css">
-    <link rel="icon" type="image/png" href="..\static\images\favicon.png">
+    <link rel="stylesheet" href="{{url_for('static',filename='js/settings-styles.js')}}">
+    <link rel="icon" type="image/png" href="{{url_for('static',filename='images/favicon.png')}}">
 </head>
 <body>
     <header>
         <div class="navbar">
             <div class="logo">
-                <a href="landing-upon-login.html">
-                    <img src="..\static\images\landing_logo.png" alt="Logo">
+                <a href="/landing-upon-login">
+                    <img src="{{url_for('static',filename='images/landing_logo.png')}}" alt="Logo">
                 </a>
             </div>
             <div class="nav-links">
-                <a href="discover.html">Discover</a>
-                <a href="MyLeafsets.html">My Leafsets</a>
-                <a href="settings.html">Settings</a>
+                <a href="/discover">Discover</a>
+                <a href="/MyLeafsets">My Leafsets</a>
+                <a href="/settings">Settings</a>
             </div>
         </div>
     </header>
@@ -58,5 +58,5 @@
         © 2024 Leafcards by LinkedLeaves
     </footer>
 </body>
-<script src="..\static\js\settings-script.js"></script>
+<script src="{{url_for('static',filename='images/settings-styles.js')}}"></script>
 </html>

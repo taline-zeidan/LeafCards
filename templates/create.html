@@ -4,21 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Create - Leafcards</title>
-    <link rel="stylesheet" href="..\assets\css\create-styles.css">
-    <link rel="icon" type="image/png" href="..\assets\images\favicon.png">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/create-styles.css')}}">
+    <link rel="icon" type="image/png" href="{{url_for('static', filename='images/favicon.png')}}">
 </head>
 <body>
     <header>
         <div class="navbar">
             <div class="logo">
-                <a href="landing-upon-login.html">
-                    <img src="..\assets\images\landing_logo.png" alt="Logo">
+                <a href="/home">
+                    <img src="{{url_for('static', filename='images/landing_logo.png')}}" alt="Logo">
                 </a>
             </div>
             <div class="nav-links">
-                <a href="discover.html">Discover</a>
-                <a href="MyLeafsets.html">My Leafsets</a>
-                <a href="settings.html">Settings</a>
+                <a href="/discover">Discover</a>
+                <a href="/MyLeafsets">My Leafsets</a>
+                <a href="/settings">Settings</a>
                 <!-- <a href="signup.html" class="sign-up">Sign Up</a> -->
             </div>
         </div>
@@ -53,6 +53,6 @@
         © 2024 Leafcards by LinkedLeaves
     </footer>
 
-    <script src="..\assets\js\create.js"></script>
+    <script src="{{url_for('static', filename='js/create.js')}}"></script>
 </body>
 </html>
