@@ -2,7 +2,7 @@ body, html {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    padding-top: 40px;
+    padding-top: 20px;
     background: linear-gradient(to bottom, white, #f0f0f0);
     overflow: hidden;
     height: 100%;
@@ -87,7 +87,6 @@ header {
     color: white;
 }
 
-
 @media (max-width: 600px) {
     .nav-links {
         display: none;
@@ -96,6 +95,16 @@ header {
         justify-content: center;
     }
 }
+
+.form-boxes {
+    display: flex;
+    justify-content: center;
+    /* margin: 10px 0; */
+    margin-bottom: 40px;
+    font-size: 18px;
+    width: 100%;
+}
+
 
 .settings-container {
     width: 80%;
@@ -167,4 +176,12 @@ footer {
     left: 0;
     bottom: 0;
     width: 100%;
+}
+
+.form-boxes {
+    display: flex;
+    justify-content: center;
+    margin: 10px 0;
+    /* margin-bottom: 40px; */
+    font-size: 18px;
 }
