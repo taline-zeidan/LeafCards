@@ -3,7 +3,7 @@ from flask_mail import Mail, Message
 from itsdangerous import URLSafeTimedSerializer
 import talk_to_db as ttd
 import sqlite3
-import jsonify
+from flask import jsonify
 import threading
 
 
@@ -207,6 +207,8 @@ def get_leafset_cards(folderId):
         if conn:
             conn.close()
 
+
+
 @app.route('/save_leafset', methods=['POST'])
 def save_leafset():
     leafset_name = request.form.get('leafsetName')
@@ -219,13 +221,13 @@ def save_leafset():
         return jsonify({'error': 'Missing name or cards'}), 400
     
     try:
-        with sqlite3.connect('leafcards.db') as conn:
+        with sqlite3.connect('database.db') as conn:
             
             cursor = conn.cursor()
-            cursor.execute("INSERT INTO Leaf_Sets (Name) VALUES (?)", (leafset_name,))
+            cursor.execute("INSERT INTO Leaf_Sets (FolderName) VALUES (?)", (leafset_name,))
             
             leafset_id = cursor.lastrowid
-            cursor.executemany("INSERT IN TO Leaf_Cards (Leafset_ID, Question, Answer, Knowledge) VALUES (?,?,?,0)",
+            cursor.executemany("INSERT INTO Leaf_Cards (FolderID, Question, Answer, Knowledge) VALUES (?,?,?,0)",
                                [(leafset_id, card['key'], card['value']) for card in cards])
             
             conn.commit()
@@ -236,6 +238,7 @@ def save_leafset():
 
     return jsonify({'success': True, 'leafset_id': leafset_id}), 200
 
+
 @app.route('/update_knowledge', methods=['POST'])
 def update_knowledge():
     # Extract card ID and knowledge value from the POST request
@@ -244,7 +247,7 @@ def update_knowledge():
 
     # Connect to the database and update the knowledge field
     try:
-        conn = sqlite3.connect('leafcards.db')
+        conn = sqlite3.connect('database.db')
         cursor = conn.cursor()
         query = "UPDATE Leaf_Cards SET Knowledge = ? WHERE Leaf_Card_ID = ?"
         cursor.execute(query, (knowledge, card_id))
