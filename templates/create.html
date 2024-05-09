@@ -19,31 +19,30 @@
                 <a href="/discover">Discover</a>
                 <a href="/MyLeafsets">My Leafsets</a>
                 <a href="/settings">Settings</a>
-                <!-- <a href="signup.html" class="sign-up">Sign Up</a> -->
             </div>
         </div>
     </header>
     <main>
         <div class="create-leafset">
             <h1>Grow a New Leafset</h1>
-            <form>
-                <label for="leafsetName"></label>
-                <input type="text" id="leafsetName" name="leafsetName" class="form-boxes" placeholder="Name of the Leafset">
+            <form action="/save_leafset" method="post" id="leafsetForm">
+                <label for="leafsetName">Leafset Name:</label>
+                <input type="text" id="leafsetName" name="leafsetName" class="form-boxes" placeholder="Name of the Leafset" required>
 
-                <label for="leafsetLabel"></label>
-                <input type="text" id="leafsetLabel" name="leafsetLabel" class="form-boxes" placeholder="Enter a label e.g., Biology, Spanish, History">
+                <label for="leafsetLabel">Leafset Label:</label>
+                <input type="text" id="leafsetLabel" name="leafsetLabel" class="form-boxes" placeholder="Enter a label e.g., Biology, Spanish, History" required>
 
                 <div class="flashcards-container" id="flashcardsContainer">
                     <!-- Flashcard input pairs will be dynamically inserted here -->
                 </div>
 
                 <div class="public-button">
-                    <input type="checkbox" id="publicOption" name="visibility" value="public" class="checkbox-public">
-                    <label for="publicOption">Public</label>
-                </div>     
+                    <input type="checkbox" id="publicOption" name="is_public" value="1" class="checkbox-public">
+                    <label for="publicOption">Make Public</label>
+                </div>
 
                 <button type="button" class="add-btn" id="addCardBtn">Add Flashcard</button>
-                <button type="submit" class="save-btn" id="saveBtn" >Save Leafset</button>
+                <button type="submit" class="save-btn" id="saveBtn">Save Leafset</button>
             </form>
         </div>
     </main>
