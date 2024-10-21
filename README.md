@@ -1,2 +1,2 @@
-# DataStructuresLab
-This project aims at simplifying learning using flash cards.
+# LeafCards
+This project aims to simplify learning using flash cards. It is an optional part of the Data Structures Lab aimed to strengthen our programming skills. It is built using Flask and allows the creation and deletion of flashcards as well as organizing groups of cards in certain sets. It also contains a log in and sign up functionality. It is a beginner project and contains a few bugs that we aim to fix in the near future. 
